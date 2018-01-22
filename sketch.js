@@ -10,7 +10,7 @@ const c1 = '#ffcc00';
 const c2 = '#222222';
 const c3 = '#22222240';
 
-const partition = [-1.2, -1,-0.8, -0.4, 0, 0.6, 1.1, 1.2];
+var partition = [-1.2, 0, 0.6, 1.1, 1.2]
 
 var minima = [];
 var maxima = [];
@@ -24,6 +24,24 @@ var func_names = [];
 
 var current_partition = 0;
 
+function reset () {
+    partition = [-1.2, 1.2];
+}
+
+function part () {
+    var random = 2.4 * (Math.random() - 0.5);
+    
+    /* IMPLEMENT BINARY SEARCH HERE */
+    for (var i = partition.length - 1; i >= 0;  i --) {
+        if (random > partition[i]) {
+            partition.splice(i + 1, 0, random);
+            visible_minima.splice(i + 1, 0, visible_minima[i]);
+            visible_maxima.splice(i + 1, 0, visible_maxima[i]);
+            return;
+        }
+    }
+}
+
 function get_lower () {
     var total = 0;
     
@@ -32,7 +50,7 @@ function get_lower () {
         
         var min = visible_minima[i];
         
-        total += min;
+        total += (width * min);
     }
     
     return total;
@@ -46,7 +64,7 @@ function get_upper () {
         
         var max = visible_maxima[i];
         
-        total += max;
+        total += (width * max);
     }
     
     return total;
