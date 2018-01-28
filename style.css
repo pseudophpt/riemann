@@ -47,6 +47,11 @@ body {
     border-spacing: 10px
 }
 
+/* Author */
+.author {
+    font-size: 10px;
+}
+
 /* Clickable item */
 .clickable {
     cursor: pointer;
