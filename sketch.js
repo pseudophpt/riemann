@@ -10,7 +10,7 @@ const c1 = '#ffcc00';
 const c2 = '#222222';
 const c3 = '#22222240';
 
-var partition = [-1.2, 0, 0.6, 1.1, 1.2]
+var partition = [-1.2, 1.2]
 
 var minima = [];
 var maxima = [];
